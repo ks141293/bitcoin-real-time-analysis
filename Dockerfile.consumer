@@ -1,0 +1,21 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Kopiowanie plików requirements
+COPY requirements.txt .
+
+# Instalacja zależności
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Kopiowanie aplikacji
+COPY consumer.py .
+
+# Skrypt startowy z oczekiwaniem na Kafkę
+COPY wait-for-kafka.sh .
+RUN chmod +x wait-for-kafka.sh
+
+EXPOSE 5000
+
+# Uruchomienie z oczekiwaniem na Kafkę
+CMD ["./wait-for-kafka.sh", "kafka:29092", "--", "python", "consumer.py"]
