@@ -4,6 +4,17 @@ System rozproszony służący do **monitorowania zmian w trendzie ceny i wolumen
 
 ---
 
+### Twórcy
+
+* 141293
+* 108591
+* 140493
+* 141285
+* 140838
+
+---
+
+
 ### Cel projektu
 
 Celem aplikacji jest wykrywanie anomalii (odchyleń od trendu) w dziennych wartościach:
